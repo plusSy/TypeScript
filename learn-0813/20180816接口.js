@@ -12,6 +12,7 @@ function printLabel(labelObj) {
     console.log(labelObj);
 }
 printLabel(myObj);
+"";
 function printLabelInterface(labelObj) {
     console.log(labelObj.label);
 }
@@ -33,4 +34,12 @@ var p1 = { x: 10, y: 0 };
 // TypeScript具有 ReadonlyArray<T> 类型, 它与Array<T>相似,只是把所有可变方法去掉了,因此可以确保数组创建后在也不能被修改:
 var a = [1, 2, 3, 4];
 var ro = a;
+// ro[0] = 12; // 类型“ReadonlyArray<number>”中的索引签名仅允许读取。
+// ro.push(5); // error!
+// ro.length = 100; // error!
+// a = ro; // error!
 console.log('---->', ro[2]);
+// 上面代码的最后一行,可以看到就算把整个 ReadonlyArray 赋值到一个普通数组也是不可以的,但是可以用类型断言重写.
+a = ro;
+// readonly vs const
+// 最简单判断该用 readonly 还是 const 的方法是要看要把它做为变量使用还是做为一个属性.做为变量使用的话用const,若做为属性则使用 readonly

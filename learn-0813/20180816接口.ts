@@ -15,8 +15,8 @@ function printLabel(labelObj: { label: string }) {
   console.log(labelObj);
 }
 
-printLabel(myObj)
-
+printLabel(myObj);
+``
 // 类检查器会查看 printLabel 的调用.printLabel有一个参数,并要求这个对象参数有一个名为lebal,类型为string的的属性.需要注意的是,我们传入的对象参数实际上包含很多属性,但是编译器只会检查那些必须的属性是否存在,并且其类型是否匹配.
 
 // 下面我们重写上面的例子,用接口来描述:必须包含一个label属性且其数据类型为string:
